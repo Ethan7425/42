@@ -1,3 +1,4 @@
 .vscode
 libft.a
 .DS_Store
+.gitignore

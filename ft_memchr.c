@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 14:37:13 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/25 16:26:15 by etbernar         ###   ########.fr       */
+/*   Created: 2022/10/25 16:09:54 by etbernar          #+#    #+#             */
+/*   Updated: 2022/10/25 16:24:32 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
+	char	*str;
 
 	i = 0;
-	if (!dest && !src)
-		return (0);
+	str = (void *)s;
 	while (i < n)
-	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+	{	
+		if (str[i] == (char)c)
+			return (&str[i]);
 		i++;
 	}
-	return (dest);
+	return (0);
 }
 
-/*int main () 
-{
-   const char src[50] = "hellooo";
-   char dest[50];
-   strcpy(dest,"dest");
-   printf("Before memcpy dest = %s\n", dest);
-   ft_memcpy(dest, src, strlen(src)+1);
-   printf("After memcpy dest = %s\n", dest);
-   
+/*int main () {
+   const char str[] = "coucouuuuu";
+   const char ch = 'u';
+   char *res;
+
+   res = ft_memchr(str, ch, strlen(str));
+
+   printf("String after |%c| is - |%s|\n", ch, res);
+
    return(0);
 }*/

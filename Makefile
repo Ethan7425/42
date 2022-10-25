@@ -6,11 +6,11 @@
 #    By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 11:06:27 by etbernar          #+#    #+#              #
-#    Updated: 2022/10/25 13:52:24 by etbernar         ###   ########.fr        #
+#    Updated: 2022/10/25 15:41:15 by etbernar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= tout les fichiers a compiler
+SRCS	= ft_isalnum.c
 
 OBJS	= ${SRCS:.c=.o}
 
