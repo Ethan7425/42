@@ -6,7 +6,7 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:38:08 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 10:55:16 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:01:11 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 		}
 		i++;
 	}
-
-/*int	main()
+}
+int	main()
 {
-	char char1 [100] = "Coucou comment ca va ?";
-	char char2 [100] = "ca";
-	printf ("%s", ft_strstr(char1,char2, 4));
-}*/
+	const char char1 [100] = "Coucou comment ca va ?";
+	const char char2 [100] = "ca";
+	printf ("%d", ft_strstr(char1,char2, 4));
+}

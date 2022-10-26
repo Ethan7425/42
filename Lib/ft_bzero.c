@@ -6,7 +6,7 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:23:49 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 12:01:44 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/10/26 13:37:48 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
-int main( void )
-  {
-    char buffer[80];
-
-    bzero( buffer, 80 );
-    return EXIT_SUCCESS;
-  }

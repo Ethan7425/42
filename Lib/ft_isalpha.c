@@ -6,7 +6,7 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:12:57 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 12:17:46 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/10/26 13:23:59 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ int	ft_isalpha(int c)
 	{
 		return (1);
 	}
-	else
-		return (0);
+	return (0);
 }

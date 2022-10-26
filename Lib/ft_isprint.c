@@ -6,7 +6,7 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:39:32 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/24 12:46:19 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:18:14 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 127)
+	if (c >= 32 && c < 127)
 		return (1);
 	else
 		return (0);
 }
-
-/*int	main()
-{
-	printf("%d\n", ft_isprint(' '));
-}*/

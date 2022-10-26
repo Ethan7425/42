@@ -6,20 +6,12 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:52:17 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 11:02:41 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:56:02 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
 #include<stdlib.h>
-
-int	whitespace(char c)
-{
-	if (c == '\n' || c == '\v' || c == '\t'
-		|| c == '\r' || c == '\f' || c == ' ')
-		return (1);
-	return (0);
-}
 
 int	ft_atoi(char *str)
 {
@@ -30,28 +22,24 @@ int	ft_atoi(char *str)
 	res = 0;
 	sign = 1;
 	i = 0;
-	while (whitespace(*str))
-		str++;
-	while (*str == '-' || *str == '+')
+
+	if (str[i] == '-')
 	{
-		if (*(str++) == '-')
-			sign *= -1;
+		sign *= -1;
+		i++;
 	}
-	while (*str)
+	if (str[i] == '+')
 	{
-		if (*str >= '0' && *str <= '9')
-		{
-			res = res * 10 + (*(str++) - '0');
-		}
-		else
-			return (res * sign);
+		i++;
 	}
+	while (str[i] >= 48 && str[i] <= 57)
+		res = res * 10 + ((str[i++]) - '0');
 	return (res * sign);
 }
 
-/*int	main()
+int main()
 {
-	char	str[] = "\t\f\r\n\v    ----+-+12345b67";
-	printf("%d\n", ft_atoi(str));
-	return (0);
-}*/
+    char str[] = "-2147483648";
+    printf("%d\n", ft_atoi(str));
+    return (0);
+}
