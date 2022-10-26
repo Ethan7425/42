@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 15:27:23 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 12:55:57 by etbernar         ###   ########.fr       */
+/*   Created: 2022/10/26 09:27:35 by etbernar          #+#    #+#             */
+/*   Updated: 2022/10/26 10:53:19 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i])
+	while (i < n)
 	{
-		if (str[i] == (char)c)
-			return ((char *)&str[i]);
+		if (((unsigned char *)str1)[i] != ((unsigned char *)str2)[i])
+			return (((unsigned char *)str1)[i] - ((unsigned char *)str2)[i]);
 		i++;
 	}
-	if (str[i] == c)
-		return (0);
 	return (0);
 }
+
 /*int main () 
 {
-   const char str[] = "abcdefghijkl";
-   const char ch = 'b';
-   char *res;
+   char str1[15];
+   char str2[15];
+   int ret;
 
-   res = ft_strchr(str, ch);
+   memcpy(str1, "abcdef", 6);
+   memcpy(str2, "ABCDEF", 6);
 
-   printf("Str a partir %c = %s\n", ch, res);
+   ret = memcmp(str1, str2, 5);
+
+	printf("%d\n", ret);
    
    return(0);
 }*/

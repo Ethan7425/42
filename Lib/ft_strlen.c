@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 11:12:57 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/24 11:52:21 by etbernar         ###   ########.fr       */
+/*   Created: 2022/10/24 12:46:34 by etbernar          #+#    #+#             */
+/*   Updated: 2022/10/26 10:40:32 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_strlen(const char *str)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-	{
-		return (1);
-	}
-	else
-		return (0);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
 /*int	main()
 {
-	printf("%d\n", ft_isalpha('e'));
+	char *s = "bon j our";
+	printf("%d\n", ft_strlen(s));
 	return (0);
 }*/

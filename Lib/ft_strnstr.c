@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 15:27:23 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 12:55:57 by etbernar         ###   ########.fr       */
+/*   Created: 2022/10/26 09:38:08 by etbernar          #+#    #+#             */
+/*   Updated: 2022/10/26 10:55:16 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i])
+	if (to_find == NULL || ft_strlen(to_find) == 0)
+		return ((char *)str);
+	if (ft_strlen(to_find) > len)
+		return (NULL);
+	while (i < len)
 	{
-		if (str[i] == (char)c)
+		if (ft_strncmp((char *)&str[i], to_find, ft_strlen(to_find)) == 0)
+		{
+			if (i + ft_strlen(to_find) > len)
+				return (NULL);
 			return ((char *)&str[i]);
+		}
 		i++;
 	}
-	if (str[i] == c)
-		return (0);
-	return (0);
-}
-/*int main () 
+
+/*int	main()
 {
-   const char str[] = "abcdefghijkl";
-   const char ch = 'b';
-   char *res;
-
-   res = ft_strchr(str, ch);
-
-   printf("Str a partir %c = %s\n", ch, res);
-   
-   return(0);
+	char char1 [100] = "Coucou comment ca va ?";
+	char char2 [100] = "ca";
+	printf ("%s", ft_strstr(char1,char2, 4));
 }*/

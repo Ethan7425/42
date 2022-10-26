@@ -6,15 +6,14 @@
 #    By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 11:06:27 by etbernar          #+#    #+#              #
-#    Updated: 2022/10/25 15:41:15 by etbernar         ###   ########.fr        #
+#    Updated: 2022/10/26 13:02:29 by etbernar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_isalnum.c
+SRCS	= ft_*.c
+OBJS	= ft_*.o
 
-OBJS	= ${SRCS:.c=.o}
-
-NAME	= libft
+NAME	= libft.a
 
 CC		= gcc
 RM		= rm -f
@@ -24,8 +23,9 @@ CFLAGS	= -Wall -Werror -Wextra
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}: 	${OBJS}
-			${CC} -o ${NAME} ${OBJS}
+${NAME}: 	${OBJS};
+			ar rc ${NAME} ${OBJS};
+			ranlib ${NAME}
 
 all:		${NAME}
 
@@ -36,3 +36,4 @@ fclean:	clean
 			${RM} ${NAME}
 
 re:		fclean all
+
