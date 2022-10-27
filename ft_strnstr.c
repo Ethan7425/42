@@ -10,31 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
+	const char *g;
+	const char *p;
 	size_t	i;
 
 	i = 0;
-	if (to_find == NULL || ft_strlen(to_find) == 0)
+	if (*to_find == '\0')
 		return ((char *)str);
-	if (ft_strlen(to_find) > len)
-		return (NULL);
-	while (i < len)
+
+	while (*str != '\0' && len > 0)
 	{
-		if (ft_strncmp((char *)&str[i], to_find, ft_strlen(to_find)) == 0)
+		g = str;
+		p = to_find;
+		i = len;
+		while (*p != '\0' && *g == *p && i--)
 		{
-			if (i + ft_strlen(to_find) > len)
-				return (NULL);
-			return ((char *)&str[i]);
+			g++;
+			p++;
 		}
-		i++;
+		if (*p == '\0')
+			return ((char*)str);
+		str++;
+		--len;
 	}
+	return (0);
 }
 int	main()
 {
-	const char char1 [100] = "Coucou comment ca va ?";
-	const char char2 [100] = "ca";
-	printf ("%d", ft_strstr(char1,char2, 4));
+	const char char1 [100] = "abcdefghijkl";
+	const char char2 [100] = "b";
+	printf ("%s", ft_strnstr(char1,char2, 2));
 }

@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include <stdio.h>
+/*unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 
@@ -24,9 +23,9 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	}
 	dest[i] = '\0';
 	return (i);
-}
+}*/
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -38,9 +37,31 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-/*int	main(void)
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t srcsize;
+	size_t i;
+
+	if (!dst || !src)
+		return (0);
+	srcsize = ft_strlen(src);
+	i = 0;
+	if (dstsize != 0)
+	{
+		while (src[i] != '\0' && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (srcsize);
+}
+
+int	main(void)
 {
 	char	dest[]= "hellloooo";
-	char	src1[] = "adieuuu";
-	printf("%s\n%u", dest, ft_strlcpy(dest, src1, 10));
-}*/
+	char	src1[] = "comment ca va";
+	printf("%zu\n", ft_strlcpy(dest, src1, 10));
+}
