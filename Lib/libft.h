@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: derivederacinedunefonctionu <derivedera    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:45:00 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 11:24:56 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:18:34 by derivederac      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdio.h>
 # include <string.h>
+# include <stdlib.h>
 
 int				ft_atoi(char *str);
 void			ft_bzero(void *s, size_t n);
@@ -28,6 +29,7 @@ void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *b, int c, size_t len);
 char			*ft_strchr(const char *str, int c);
+char            *ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *dest, const char *src, size_t len);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 int				ft_strlen(const char *str);
