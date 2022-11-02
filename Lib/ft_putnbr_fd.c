@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 15:27:23 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/02 13:47:33 by etbernar         ###   ########.fr       */
+/*   Created: 2022/11/02 14:31:43 by etbernar          #+#    #+#             */
+/*   Updated: 2022/11/02 14:51:30 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	unsigned int	nb;
 
-	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i])
+	if (n < 0)
 	{
-		if (str[i] == (char)c)
-			return ((char *)&str[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		nb = -n;
 	}
-	if (str[i] == (char)c)
-		return ((char *)&str[i]);
-	return (0);
+	else
+		nb = n;
+	if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		nb %= 10;
+	}
+	ft_putchar_fd(nb + '0', fd);
 }
-/*int main () 
-{
-   const char str[] = "abcdefghijkl";
-   const char ch = 'b';
-   char *res;
-
-   res = ft_strchr(str, ch);
-
-   printf("Str a partir %c = %s\n", ch, res);
-   
-   return(0);
-}*/

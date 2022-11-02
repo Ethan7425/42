@@ -6,13 +6,13 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:27:22 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/25 14:45:46 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/02 13:56:45 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-int	ft_strlen(const char *str)
+static int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -24,19 +24,18 @@ int	ft_strlen(const char *str)
 
 char	*ft_strrchr(const char *str, int c)
 {
-	int	i;
+	int			i;
+	const char	*j;
 
+	j = str;
 	i = ft_strlen(str);
+	str = (str + i);
 	if (str == NULL)
 		return (0);
-	while (i > 0)
-	{
-		if (str[i] == (char)c)
-			return ((char *)&str[i]);
-		i--;
-	}
-	if (str[i] == c)
-		return (0);
+	while (*str != *j && c != *str)
+		str--;
+	if (c == *str)
+		return ((char *)str);
 	return (0);
 }
 /*int main () 

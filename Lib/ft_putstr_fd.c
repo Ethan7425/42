@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 15:27:23 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/02 13:47:33 by etbernar         ###   ########.fr       */
+/*   Created: 2022/11/02 14:15:27 by etbernar          #+#    #+#             */
+/*   Updated: 2022/11/02 14:23:29 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i])
+	while (s[i] != '\0')
 	{
-		if (str[i] == (char)c)
-			return ((char *)&str[i]);
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	if (str[i] == (char)c)
-		return ((char *)&str[i]);
-	return (0);
 }
-/*int main () 
-{
-   const char str[] = "abcdefghijkl";
-   const char ch = 'b';
-   char *res;
-
-   res = ft_strchr(str, ch);
-
-   printf("Str a partir %c = %s\n", ch, res);
-   
-   return(0);
-}*/

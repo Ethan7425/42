@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: derivederacinedunefonctionu <derivedera    +#+  +:+       +#+        */
+/*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:54:14 by derivederac       #+#    #+#             */
-/*   Updated: 2022/10/31 14:16:39 by derivederac      ###   ########.fr       */
+/*   Updated: 2022/11/02 11:17:05 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static int	ft_strlen(const char *str)
 	return (i);
 }
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    char	*s3;
+	char	*s3;
 	int		i;
 	int		j;
 
@@ -33,7 +33,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	j = -1;
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-	if ((s3 = (char *)malloc(sizeof(char)* (ft_strlen(s1) + ft_strlen(s2) + 1))) == NULL)
+	if ((s3 = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))) == NULL)
 		return (NULL);
 	while (s1 != NULL && s1[++j] != '\0')
 		s3[++i] = s1[j];
@@ -44,7 +44,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	return (s3);
 }
 
-int main()
+/*int main()
 {
     const char *x;
     const char *y;
@@ -52,4 +52,4 @@ int main()
 	x = "cou";
 	y = "cou";
     printf("%s\n", ft_strjoin(x, y));
-}
+}*/

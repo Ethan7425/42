@@ -6,7 +6,7 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:57:42 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/25 11:52:23 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/02 11:28:27 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memset(void *b, int c, size_t len)
 
 	k = 0;
 	str = (char *)b;
-	while (k <= len)
+	while (k < len)
 	{
 		str[k] = c;
 		k++;
@@ -32,10 +32,10 @@ void	*ft_memset(void *b, int c, size_t len)
 {
    char str[50];
 
-   strcpy(str,"This is string.h library function");
+   strcpy(str,"bonjour comment ca va");
    puts(str);
 
-   ft_memset(str,'$',7);
+   ft_memset(str,'$',1);
    puts(str);
    
    return(0);

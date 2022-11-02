@@ -6,11 +6,12 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:17:32 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 10:47:59 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:23:10 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
 
 static int	ft_strlen(const char *str)
 {
@@ -42,17 +43,17 @@ size_t	ft_strlcat(char *dest, const char *src, size_t len)
 	return (dest1 + src1);
 }
 
-/*int main()
+int main()
 {
-    char first[] = "This is ";
+    char first[] = "This is";
     char last[] = "a potentially long string";
     int r;
-    int size = 34;
+    int size = 0 ;
     char buffer[size];
 
     strcpy(buffer,first);
-    r = strlcat(buffer,last,size);
+    r = ft_strlcat(buffer,last,size);
 
     puts(buffer);
     return(0);
-}*/
+}

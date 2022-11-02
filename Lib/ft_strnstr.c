@@ -6,7 +6,7 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:38:08 by etbernar          #+#    #+#             */
-/*   Updated: 2022/10/26 14:01:11 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/02 11:13:30 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	const char *g;
-	const char *p;
-	size_t	i;
+	const char	*g;
+	const char	*p;
+	size_t		i;
 
 	i = 0;
 	if (*to_find == '\0')
 		return ((char *)str);
-
 	while (*str != '\0' && len > 0)
 	{
 		g = str;
@@ -33,15 +32,15 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 			p++;
 		}
 		if (*p == '\0')
-			return ((char*)str);
+			return ((char *)str);
 		str++;
 		--len;
 	}
 	return (0);
 }
-int	main()
+/*int	main()
 {
 	const char char1 [100] = "abcdefghijkl";
 	const char char2 [100] = "b";
 	printf ("%s", ft_strnstr(char1,char2, 2));
-}
+}*/
