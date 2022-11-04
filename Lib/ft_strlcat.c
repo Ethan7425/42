@@ -6,44 +6,31 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:17:32 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/02 15:23:10 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/04 12:32:10 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-static int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcat(char *dest, const char *src, size_t len)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	size_t	dest1;
-	size_t	src1;
+	size_t	len;
 
 	i = 0;
-	dest1 = ft_strlen(dest);
-	src1 = ft_strlen(src);
-	if (len - 1 <= dest1)
-		return (src1 + len);
-	while (dest1 + i < len - 1)
+	len = ft_strlen(dst);
+	if (dstsize <= len)
+		return (ft_strlen(src) + dstsize);
+	while (src[i] && len + 1 < dstsize)
 	{
-		dest[dest1 + i] = src[i];
+		dst[len] = src[i];
 		i++;
+		len++;
 	}
-	dest[dest1 + i] = '\0';
-	return (dest1 + src1);
+	dst[len] = '\0';
+	return (ft_strlen(&src[i]) + len);
 }
-
-int main()
+/*int main()
 {
     char first[] = "This is";
     char last[] = "a potentially long string";
@@ -56,4 +43,4 @@ int main()
 
     puts(buffer);
     return(0);
-}
+}*/

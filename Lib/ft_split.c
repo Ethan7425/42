@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: derivederacinedunefonctionu <derivedera    +#+  +:+       +#+        */
+/*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:53:47 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/03 11:55:01 by derivederac      ###   ########.fr       */
+/*   Updated: 2022/11/04 12:26:59 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,9 @@ char	**ft_split(char const *s, char c)
 	tab[i_tab] = 0;
 	return (tab);
 }
+
+/*int main()
+{
+	const char *s = "cou cou";
+	printf("%s\n", *ft_split(s, ' '));
+}*/

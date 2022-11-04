@@ -6,38 +6,38 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:52:17 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/02 12:55:00 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/04 12:40:04 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
 #include<stdlib.h>
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int	res;
-	int	sign;
 	int	i;
+	int	atoi;
+	int	sign;
 
-	res = 0;
-	sign = 1;
 	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+	atoi = 0;
+	sign = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+' && str[i + 1] != '-')
 		i++;
 	if (str[i] == '-')
 	{
-		sign *= -1;
+		sign = -1;
 		i++;
 	}
-	if (str[i] == '+' && str[i - 1] != '-')
-		i++;
-	if (str[i] >= 48 && str[i] <= 57)
+	while (str[i] && str[i] >= 48 && str[i] <= 57)
 	{
-		while (str[i] >= 48 && str[i] <= 57)
-			res = res * 10 + ((str[i++]) - '0');
+		atoi *= 10;
+		atoi += str[i] - 48;
+		i++;
 	}
-	return (res * sign);
+	return (atoi * sign);
 }
 
 /*int main()

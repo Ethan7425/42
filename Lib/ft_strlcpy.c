@@ -6,43 +6,29 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:42:32 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/02 11:14:49 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/04 12:41:12 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-static int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	srcsize;
-	size_t	i;
+	unsigned int	i;
+	unsigned int	src_len;
 
-	if (!dst || !src)
-		return (0);
-	srcsize = ft_strlen(src);
+	src_len = ft_strlen(src);
 	i = 0;
-	if (dstsize != 0)
+	if (src_len + 1 < dstsize)
 	{
-		while (src[i] != '\0' && i < (dstsize - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		ft_memcpy(dst, src, src_len + 1);
 	}
-	return (srcsize);
+	else if (dstsize != 0)
+	{
+		ft_memcpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = 0;
+	}
+	return (src_len);
 }
 
 /*int	main(void)

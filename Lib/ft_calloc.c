@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: derivederacinedunefonctionu <derivedera    +#+  +:+       +#+        */
+/*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:05:16 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/03 16:32:10 by derivederac      ###   ########.fr       */
+/*   Updated: 2022/11/04 11:16:57 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
