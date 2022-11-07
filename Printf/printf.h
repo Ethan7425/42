@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 15:23:49 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/04 11:15:32 by etbernar         ###   ########.fr       */
+/*   Created: 2022/11/07 08:34:16 by etbernar          #+#    #+#             */
+/*   Updated: 2022/11/07 14:54:43 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include<stdio.h>
-#include<stdlib.h>
+#ifndef PRINTF_H
+# define PRINTF_H
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*dest;
-	size_t			i;
 
-	dest = s;
-	i = 0;
-	while (i < n)
-	{
-		dest[i] = 0;
-		i++;
-	}
-}
+
+#endif
