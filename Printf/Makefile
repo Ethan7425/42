@@ -6,15 +6,15 @@
 #    By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 08:31:21 by derivederac       #+#    #+#              #
-#    Updated: 2022/11/07 08:33:51 by etbernar         ###   ########.fr        #
+#    Updated: 2022/11/08 10:52:39 by etbernar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= 
+SRCS	= *.c
 
 OBJS	= ${SRCS:.c=.o}
 
-NAME	= printf.a
+NAME	= libftprintf.a
 
 CC		= gcc
 RM		= rm -f
