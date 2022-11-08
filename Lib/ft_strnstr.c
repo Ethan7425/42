@@ -6,11 +6,11 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:38:08 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/02 11:13:30 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:05:00 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {

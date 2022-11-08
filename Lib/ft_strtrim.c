@@ -6,12 +6,11 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 14:36:29 by derivederac       #+#    #+#             */
-/*   Updated: 2022/11/02 13:35:31 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:06:23 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	is_in_set(char c, char const *set)
 {
@@ -25,16 +24,6 @@ int	is_in_set(char c, char const *set)
 		i++;
 	}
 	return (0);
-}
-
-static int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)

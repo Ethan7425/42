@@ -6,12 +6,11 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:52:17 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/04 12:40:04 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:04:05 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<stdlib.h>
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

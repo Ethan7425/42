@@ -6,13 +6,11 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:23:49 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/04 11:15:32 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:04:09 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include<stdio.h>
-#include<stdlib.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

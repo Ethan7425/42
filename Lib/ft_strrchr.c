@@ -6,11 +6,11 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:27:22 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/04 12:36:15 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:05:05 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
