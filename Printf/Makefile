@@ -1,0 +1,38 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/07 08:31:21 by derivederac       #+#    #+#              #
+#    Updated: 2022/11/07 08:33:51 by etbernar         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SRCS	= 
+
+OBJS	= ${SRCS:.c=.o}
+
+NAME	= printf.a
+
+CC		= gcc
+RM		= rm -f
+
+CFLAGS 	= -Wall -Wextra -Werror
+
+all:		${NAME}
+
+.c.o:
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+${NAME}:	${OBJS}
+			ar rcs ${NAME} ${OBJS}
+
+clean:  
+			${RM} ${OBJS}
+
+fclean:		clean
+			${RM} ${NAME}
+
+re:			fclean all
