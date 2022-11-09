@@ -6,11 +6,11 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:16:49 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/08 15:22:51 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:50:17 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(char c)
 {

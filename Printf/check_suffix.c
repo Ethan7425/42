@@ -6,22 +6,24 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:19:49 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/08 15:35:08 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/09 13:09:55 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int check_suffix(const char *suffix, va_list args)
+int	check_suffix(const char *suffix, va_list args)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (suffix[count] == 'c')
-		count += (char) ft_put_c(va_arg(args, int));
+		count += ft_put_c(va_arg(args, const char *));
 	if (suffix[count] == 's')
 		count += ft_put_s(va_arg(args, char *));
-	
-
+	if (suffix[count] == 'i' || suffix[count] == 'd')
+		count += ft_put_i(va_arg(args, int));
+	if (suffix[count] == 'u')
+		count += ft_put_u(va_arg(args, unsigned int));
 	return (count);
 }

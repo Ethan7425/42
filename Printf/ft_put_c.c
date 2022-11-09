@@ -6,13 +6,14 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:53:19 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/08 16:27:43 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:49:44 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int ft_put_c(const	char *)
+int	ft_put_c(const	char *c)
 {
-	
+	write(1, &c, 1);
+	return (1);
 }

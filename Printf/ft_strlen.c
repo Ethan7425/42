@@ -6,11 +6,11 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:46:34 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/08 10:54:20 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:50:23 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *str)
 {
