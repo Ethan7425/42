@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_s.c                                         :+:      :+:    :+:   */
+/*   ft_put_x.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 14:53:21 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/09 12:50:09 by etbernar         ###   ########.fr       */
+/*   Created: 2022/11/08 16:20:24 by etbernar          #+#    #+#             */
+/*   Updated: 2022/11/10 21:38:06 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_put_s(char *s)
+int	ft_put_x(unsigned int nb, int type)
 {
-	int	i;
+	char *alpha;
 
-	i = 0;
-	while (s[i] != '\0')
+	if (type == 'x')
+		alpha = "0123456789abcdef";
+	else
+		alpha = "0123456789ABCDEF";
+	return (ft_base16(nb, alpha));
+}
+
+int	ft_base16(unsigned int nb, char *alpha)
+{
+	int	count;
+
+	count = 0;
+	if (nb > 15)
 	{
-		ft_putchar(s[i]);
-		i++;
+		count += ft_base16(nb / 16, alpha);
+		count += ft_base16(nb % 16, alpha);
 	}
-	return (i);
+	else
+		count += ft_put_c(alpha[nb]);
+	return (count);
 }
