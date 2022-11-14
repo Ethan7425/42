@@ -6,13 +6,13 @@
 #    By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 08:31:21 by derivederac       #+#    #+#              #
-#    Updated: 2022/11/09 14:19:15 by etbernar         ###   ########.fr        #
+#    Updated: 2022/11/14 10:04:42 by etbernar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
-SRCS	= ft_printf.c check_suffix.c ft_put_c.c ft_put_i.c ft_put_s.c ft_put_u.c ft_putchar.c ft_strlen.c 
+SRCS	= ft_printf.c check_suffix.c my_func.c ft_putchar.c ft_strlen.c my_hexa_func.c
 
 OBJS	= ${SRCS:.c=.o}
 

@@ -6,81 +6,75 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:14:53 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/10 21:38:29 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:04:50 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_put_c(const	char *c)
+int	ft_put_c(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int	ft_put_i(int n)
+int	ft_put_i(int nb)
 {
-	unsigned int	nb;
-	int i;
+	int	count;
 
-	i = 0;
-	if (n < 0)
+	count = 0;
+	if (nb == -2147483648)
 	{
-		ft_putchar('-');
-		nb = -n;
-		i++;
+		write(1, "-2147483648", 11);
+		count = 11;
+	}
+	else if (nb < 0)
+	{
+		count += ft_put_c('-');
+		count += ft_put_i(-nb);
+	}
+	else if (nb > 9)
+	{
+		count += ft_put_i(nb / 10);
+		count += ft_put_i(nb % 10);
 	}
 	else
-	{
-		nb = n;
-		i++;
-	}
-	if (nb > 9)
-	{
-		ft_put_i(nb / 10);
-		nb %= 10;
-		i++;
-	}
-	ft_putchar(nb + '0');
-	return (i);
+		count += ft_put_c(nb + '0');
+	if (count < 0)
+		return (-1);
+	return (count);
 }
 
-int	ft_put_s(char *s)
+int	ft_put_s(char *str)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (s[i] != '\0')
+	count = 0;
+	if (str == NULL)
+		return (write(1, "(null)", 6));
+	while (str[count])
 	{
-		ft_putchar(s[i]);
-		i++;
+		write (1, &str[count], 1);
+		count++;
 	}
-	return (i);
+	if (count < 0)
+		return (-1);
+	return (count);
 }
 
-unsigned int	ft_put_u(unsigned int n)
+int	ft_put_u(unsigned int nb)
 {
-	unsigned int	nb;
-	int i;
+	int	count;
 
-	i = 0;
-	if (n < 0)
-	{
-		ft_putchar('-');
-		nb = -n;
-		i++;
-	}
-	else
-	{
-		nb = n;
-		i++;
-	}
+	count = 0;
 	if (nb > 9)
 	{
-		ft_put_u(nb / 10);
-		nb %= 10;
-		i++;
+		count += ft_put_i(nb / 10);
+		count += ft_put_i(nb % 10);
 	}
-	ft_putchar(nb + '0');
-	return (i);
+	else if (nb >= 0 && nb <= 9)
+		count += ft_put_c(nb + '0');
+	if (count < 0)
+		return (-1);
+	return (count);
 }

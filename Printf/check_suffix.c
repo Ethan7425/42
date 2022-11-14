@@ -6,25 +6,30 @@
 /*   By: etbernar <etbernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:19:49 by etbernar          #+#    #+#             */
-/*   Updated: 2022/11/10 21:38:12 by etbernar         ###   ########.fr       */
+/*   Updated: 2022/11/14 09:59:15 by etbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_suffix(const char *suffix, va_list args)
+int	check_suffix(const char suffix, va_list args)
 {
 	int	count;
 
 	count = 0;
-	if (suffix[count] == 'c')
-		count += ft_put_c(va_arg(args, const char *));
-	if (suffix[count] == 's')
+	if (suffix == 'c')
+		count += (char)ft_put_c(va_arg(args, int));
+	if (suffix == 's')
 		count += ft_put_s(va_arg(args, char *));
-	if (suffix[count] == 'i' || suffix[count] == 'd')
+	if (suffix == 'i' || suffix == 'd')
 		count += ft_put_i(va_arg(args, int));
-	if (suffix[count] == 'u')
+	if (suffix == 'u')
 		count += ft_put_u(va_arg(args, unsigned int));
-	if (suffix[count] == 'X' || suffix[count] == 'x')
+	if (suffix == 'X' || suffix == 'x')
+		count += (char)ft_put_x(va_arg(args, int), suffix);
+	if (suffix == 'p')
+		count += ft_put_p(va_arg(args, unsigned int));
+	if (suffix == '%')
+		return (write(1, "%", 1)); 
 	return (count);
 }
