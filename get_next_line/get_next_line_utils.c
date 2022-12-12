@@ -22,24 +22,6 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	unsigned int	i;
-	char			cc;
-
-	cc = (char) c;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == cc)
-			return ((char *) &s[i]);
-		i++;
-	}
-	if (s[i] == cc)
-		return ((char *) &s[i]);
-	return (NULL);
-}
-
 char	*ft_strdup(const char *s1)
 {
 	char	*tab;
@@ -82,26 +64,41 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (s3);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	char			*tab;
+	size_t	i;
+	char	*str;
 
-	i = 0;
 	if (!s)
 		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_calloc(1, 1));
-	if (len >= ft_strlen(s + start))
+	if (start > ft_strlen(s))
+		return (malloc(1));
+	if (len > ft_strlen(s + start))
 		len = ft_strlen(s + start);
-	tab = malloc(sizeof(char) * (len) + 1);
-	if (!tab)
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
-	while (len > 0)
+	i = 0;
+	while (i < len)
 	{
-		tab[i++] = s[start++];
-		len--;
+		str[i] = s[start + i];
+		i++;
 	}
-	tab[i] = '\0';
-	return (tab);
+	str[i] = 0;
+	return (str);
+}
+
+void	fill_str(char *res, char *s1, char *s2)
+{
+	unsigned int	i;
+	unsigned int	j;
+
+	i = 0;
+	j = 0;
+	while (s1[j])
+		res[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		res[i++] = s2[j++];
+	res[i] = '\0';
 }

@@ -10,20 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *get_next_line(int fd)
-{
-	
-}
-
-char *fill_line_buffer(int fd, char *left_c, char *buffer)
-{
-
-}
-
-char *put_line(char *line_buffer)
-{
-
-}
 
 
 
@@ -31,8 +17,8 @@ char *put_line(char *line_buffer)
 
 #include "get_next_line.h"
 
-static char    *_fill_line_buffer(int fd, char *left_c, char *buffer);
-static char    *_set_line(char *line);
+static char    *fill_line_buffer(int fd, char *left_c, char *buffer);
+static char    *set_line(char *line);
 static char    *ft_strchr(char *s, int c);
 
 char    *get_next_line(int fd)
@@ -57,17 +43,17 @@ char    *get_next_line(int fd)
     }
     if (!buffer)
         return (NULL);
-    line = _fill_line_buffer(fd, left_c, buffer);
+    line = fill_line_buffer(fd, left_c, buffer);
     // We have to free the buffer variable here since we'll not be using it later in the function, freeing it prevents memory leaks.
     free(buffer);
     buffer = NULL;
     if (!line)
         return (NULL);
-    left_c = _set_line(line);
+    left_c = set_line(line);
     return (line);
 }
 
-static char *_set_line(char *line_buffer)
+static char *set_line(char *line_buffer)
 {
     char    *left_c;
     ssize_t    i;
@@ -87,34 +73,34 @@ static char *_set_line(char *line_buffer)
     return (left_c);
 }
 
-static char	*_fill_line_buffer(int fd, char *left_c, char *buffer)
+static char	*fill_line_buffer(int fd, char *left_c, char *buffer)
 {
         /* ssize_t type works the same way as siyze_t type, but it can be a negative number, something that size_t can't do.
         * Since most of the system function we'll be using return -1 to signify errors, it could be useful to be able to store negative numbers
         */
-	ssize_t	b_read;
-	char	*tmp;
+	ssize_t	read_buff;
+	char	*temp;
 
-	b_read = 1;
-	while (b_read > 0)
+	read_buff = 1;
+	while (read_buff > 0)
 	{
-		b_read = read(fd, buffer, BUFFER_SIZE);
-		// if b_read is -1, it means there was an error reading the file descriptor, so we free left_c and return NULL.
-		if (b_read == -1)
+		read_buff = read(fd, buffer, BUFFER_SIZE);
+		// if read_buff is -1, it means there was an error reading the file descriptor, so we free left_c and return NULL.
+		if (read_buff == -1)
 		{
 			free(left_c);
 			return (NULL);
 		}
-		// if b_read is 0, this surely means we read the whole file so there-s no need to stay in the loop
-		else if (b_read == 0)
+		// if read_buff is 0, this surely means we read the whole file so there-s no need to stay in the loop
+		else if (read_buff == 0)
 			break ;
-		buffer[b_read] = 0;
+		buffer[read_buff] = 0;
 		if (!left_c)
 			left_c = ft_strdup("");
-		tmp = left_c;
-		left_c = ft_strjoin(tmp, buffer);
-		free(tmp);
-		tmp = NULL;
+		temp = left_c;
+		left_c = ft_strjoin(temp, buffer);
+		free(temp);
+		temp = NULL;
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
@@ -124,17 +110,17 @@ static char	*_fill_line_buffer(int fd, char *left_c, char *buffer)
 static char	*ft_strchr(char *s, int c)
 {
 	unsigned int	i;
-	char			cc;
+	char			car;
 
-	cc = (char) c;
+	car = (char) c;
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == cc)
+		if (s[i] == car)
 			return ((char *) &s[i]);
 		i++;
 	}
-	if (s[i] == cc)
+	if (s[i] == car)
 		return ((char *) &s[i]);
 	return (NULL);
 }
